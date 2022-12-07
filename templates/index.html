@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+</head>
+
+<body>
+    <script>
+        // LIFFの初期化を行う
+        liff.init({
+            // 自分のLIFF ID（URLから『https://liff.line.me/』を除いた文字列）を入力する
+            liffId: "1657716201-yPa1LXDK"
+        }).then(() => { // 初期化完了. 以降はLIFF SDKの各種メソッドを利用できる
+            // 利用者のLINEアカウントのプロフィール名を取得
+            liff.getProfile().then(profile => {
+                // プロフィール名
+                const name = profile.displayName
+                // HTMLに挿入
+                document.querySelector("#name").innerText = name
+            })
+        })
+    </script>
+    LINE LIFF
+    <div>Hello <span id="name">world</span>.</div>
+</body>
+
+</html>
