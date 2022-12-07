@@ -20,14 +20,23 @@
             liff.getProfile().then(profile => {
                 console.log(profile);
                 // プロフィール名
+                const userId = profile.userId;
                 const name = profile.displayName;
+                const pictureUrl = profile.pictureUrl;
+                const statusMessage = profile.statusMessage;
                 // HTMLに挿入
+                document.querySelector("#userId").innerText = userId;
                 document.querySelector("#name").innerText = name;
+                document.querySelector("#pictureUrl").innerText = statusMessage;
+                document.querySelector("#statusMessage").innerText = statusMessage;
             })
         })
     </script>
     LINE LIFF
-    <div>Hello <span id="name">world</span>.</div>
+    <div><span id="userId"></span>.</div>
+    <div><span id="name"></span>.</div>
+    <div><span id="pictureUrl"></span>.</div>
+    <div><span id="statusMessage"></span>.</div>
 </body>
 
 </html>
