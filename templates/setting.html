@@ -11,6 +11,10 @@
 
 <body>
     <script>
+        function funcBtn() {
+            let ele = document.querySelector('#userId');
+            document.myForm.appendChild(ele);
+        }
         // LIFFの初期化を行う
         liff.init({
             // 自分のLIFF ID（URLから『https://liff.line.me/』を除いた文字列）を入力する
@@ -33,14 +37,14 @@
         })
     </script>
     LINE LIFF
-    <form action="/setting" method="post">
+    <form action="/setting" method="post" id="myForm" name="myForm">
         <input id="userId" type="text" name="line_id">
         <input type="hidden" name="prefecture" value="{{ prefecture }}">
         <input type="hidden" name="municipality" value="{{ municipality }}">
         カテゴリ1<input type="checkbox" name="category01">
         カテゴリ2<input type="checkbox" name="category02">
         カテゴリ3<input type="checkbox" name="category03">
-        <input type="submit" value="送信">
+        <input type="submit" value="送信" onclick="funcBtn();">
     </form>
 </body>
 
