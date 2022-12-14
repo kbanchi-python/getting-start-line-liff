@@ -36,5 +36,5 @@ class UserInterest(Model):
         table_name = "user_interest"
 
 
-# db.drop_tables([User, UserInterest])
+db.drop_tables([User, UserInterest])
 db.create_tables([User, UserInterest])
