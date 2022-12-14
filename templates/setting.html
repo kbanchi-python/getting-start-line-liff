@@ -12,8 +12,8 @@
 <body>
     <script>
         function funcBtn() {
-            let ele = document.querySelector('#userId');
-            document.myForm.appendChild(ele);
+            let ele = document.querySelector('#line_id');
+            document.settingForm.appendChild(ele);
         }
         // LIFFの初期化を行う
         liff.init({
@@ -24,12 +24,13 @@
             liff.getProfile().then(profile => {
                 console.log(profile);
                 // プロフィール名
-                const userId = profile.userId;
+                const line_id = profile.userId;
                 const name = profile.displayName;
                 const pictureUrl = profile.pictureUrl;
                 const statusMessage = profile.statusMessage;
                 // HTMLに挿入
-                document.querySelector("#userId").value = userId;
+                document.querySelector("#line_id").value = line_id;
+                document.querySelector("#userId").innerText = line_id;
                 document.querySelector("#name").innerText = name;
                 document.querySelector("#pictureUrl").innerText = pictureUrl;
                 document.querySelector("#statusMessage").innerText = statusMessage;
@@ -37,8 +38,12 @@
         })
     </script>
     LINE LIFF
-    <form action="/setting" method="post" id="myForm" name="myForm">
-        <input id="userId" type="text" name="line_id">
+    <div><span id="userId"></span>.</div>
+    <div><span id="name"></span>.</div>
+    <div><span id="pictureUrl"></span>.</div>
+    <div><span id="statusMessage"></span>.</div>
+    <form action="/setting" method="post" id="settingForm" name="settingForm">
+        <input id="line_id" type="text" name="line_id">
         <input type="hidden" name="prefecture" value="{{ prefecture }}">
         <input type="hidden" name="municipality" value="{{ municipality }}">
         カテゴリ1<input type="checkbox" name="category01">
