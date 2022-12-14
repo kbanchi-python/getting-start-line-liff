@@ -10,6 +10,20 @@
 </head>
 
 <body>
+    LINE LIFF
+    <div><span id="userId"></span>.</div>
+    <div><span id="name"></span>.</div>
+    <div><span id="pictureUrl"></span>.</div>
+    <div><span id="statusMessage"></span>.</div>
+    <form action="/setting" method="post" id="settingForm" name="settingForm">
+        <input id="line_id" type="text" name="line_id">
+        <input type="hidden" name="prefecture" value="{{ prefecture }}">
+        <input type="hidden" name="municipality" value="{{ municipality }}">
+        カテゴリ1<input type="checkbox" name="category01">
+        カテゴリ2<input type="checkbox" name="category02">
+        カテゴリ3<input type="checkbox" name="category03">
+        <input type="submit" value="送信" onclick="funcBtn();">
+    </form>
     <script>
         function funcBtn() {
             let ele = document.querySelector('#line_id');
@@ -37,20 +51,6 @@
             })
         })
     </script>
-    LINE LIFF
-    <div><span id="userId"></span>.</div>
-    <div><span id="name"></span>.</div>
-    <div><span id="pictureUrl"></span>.</div>
-    <div><span id="statusMessage"></span>.</div>
-    <form action="/setting" method="post" id="settingForm" name="settingForm">
-        <input id="line_id" type="text" name="line_id">
-        <input type="hidden" name="prefecture" value="{{ prefecture }}">
-        <input type="hidden" name="municipality" value="{{ municipality }}">
-        カテゴリ1<input type="checkbox" name="category01">
-        カテゴリ2<input type="checkbox" name="category02">
-        カテゴリ3<input type="checkbox" name="category03">
-        <input type="submit" value="送信" onclick="funcBtn();">
-    </form>
 </body>
 
 </html>
