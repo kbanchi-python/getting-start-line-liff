@@ -5,30 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Setting</title>
+    <title>Document</title>
     <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
 </head>
 
 <body>
-    LINE LIFF
-    <div><span id="userId"></span>.</div>
-    <div><span id="name"></span>.</div>
-    <div><span id="pictureUrl"></span>.</div>
-    <div><span id="statusMessage"></span>.</div>
-    <form action="/setting" method="post" id="settingForm" name="settingForm">
-        <input id="line_id" type="text" name="line_id">
-        <input type="hidden" name="prefecture" value="{{ prefecture }}">
-        <input type="hidden" name="municipality" value="{{ municipality }}">
-        カテゴリ1<input type="checkbox" name="category01">
-        カテゴリ2<input type="checkbox" name="category02">
-        カテゴリ3<input type="checkbox" name="category03">
-        <input type="submit" value="送信" onclick="funcBtn();">
-    </form>
     <script>
-        function funcBtn() {
-            let ele = document.querySelector('#line_id');
-            document.settingForm.appendChild(ele);
-        }
         // LIFFの初期化を行う
         liff.init({
             // 自分のLIFF ID（URLから『https://liff.line.me/』を除いた文字列）を入力する
@@ -38,19 +20,23 @@
             liff.getProfile().then(profile => {
                 console.log(profile);
                 // プロフィール名
-                const line_id = profile.userId;
+                const userId = profile.userId;
                 const name = profile.displayName;
                 const pictureUrl = profile.pictureUrl;
                 const statusMessage = profile.statusMessage;
                 // HTMLに挿入
-                document.querySelector("#line_id").value = line_id;
-                document.querySelector("#userId").innerText = line_id;
+                document.querySelector("#userId").innerText = userId;
                 document.querySelector("#name").innerText = name;
-                document.querySelector("#pictureUrl").innerText = pictureUrl;
+                document.querySelector("#pictureUrl").innerText = statusMessage;
                 document.querySelector("#statusMessage").innerText = statusMessage;
             })
         })
     </script>
+    LINE LIFF
+    <div><span id="userId"></span>.</div>
+    <div><span id="name"></span>.</div>
+    <div><span id="pictureUrl"></span>.</div>
+    <div><span id="statusMessage"></span>.</div>
 </body>
 
 </html>
