@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Setting</title>
     <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
 </head>
 
@@ -27,29 +27,21 @@
                 // HTMLに挿入
                 document.querySelector("#userId").innerText = userId;
                 document.querySelector("#name").innerText = name;
-                document.querySelector("#pictureUrl").innerText = statusMessage;
+                document.querySelector("#pictureUrl").innerText = pictureUrl;
                 document.querySelector("#statusMessage").innerText = statusMessage;
             })
         })
     </script>
-    <h1>LINE LIFF</h1>
-    <table>
-        <tr>
-            <th>LINE ID</th>
-            <th>都道府県</th>
-            <th>市区町村</th>
-        </tr>
-        {% for user in users %}
-        <tr>
-            <td>{{ user.line_id }}</td>
-            <td>{{ user.prefecture }}</td>
-            <td>{{ user.municipality }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-    <div>
-        <a href="/setting?prefecture=iwate&municipality=hachimantai">受信設定</a>
-    </div>
+    LINE LIFF
+    <form action="/setting" method="post">
+        <input id="userId" type="hidden" name="line_id">
+        <input type="hidden" name="prefecture" value="{{ prefecture }}">
+        <input type="hidden" name="municipality" value="{{ municipality }}">
+        カテゴリ1<input type="checkbox" name="category01">
+        カテゴリ2<input type="checkbox" name="category02">
+        カテゴリ3<input type="checkbox" name="category03">
+        <input type="submit" value="送信">
+    </form>
 </body>
 
 </html>
