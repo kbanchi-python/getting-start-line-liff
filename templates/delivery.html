@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="ja">
+{% extends "layout.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delivery</title>
-</head>
-
-<body>
-
-</body>
-
-</html>
+{% block content %}
+<form action="delivery" method="post">
+    <h3>Target</h3>
+    <input type="radio" name="target">カテゴリ1
+    <input type="radio" name="target">カテゴリ2
+    <input type="radio" name="target">カテゴリ3
+    <h3>Content</h3>
+    <textarea name="content" cols="30" rows="10"></textarea>
+    <input type="submit" value="Send">
+</form>
+{% endblock %}
